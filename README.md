@@ -337,7 +337,8 @@ services:
       context: .
       target: sibling-container
     container_name: prometheus-wireguard-exporter
-    # environment:
+    environment:
+      - PROMETHEUS_WIREGUARD_EXPORTER_CONTAINER_NAME=wireguard # required: name of wireguard service/container
     #   - PROMETHEUS_WIREGUARD_EXPORTER_CONFIG_FILE_NAMES=/etc/wg0.conf # optional
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro # allow access to host docker from the container
